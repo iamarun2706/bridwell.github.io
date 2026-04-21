@@ -7,38 +7,160 @@
 
 <title>Bridwell Limited</title>
 
-<link rel="stylesheet" href="style.css">
+<style>
+
+body{
+margin:0;
+height:100vh;
+overflow:hidden;
+font-family:Arial, Helvetica, sans-serif;
+}
+
+/* background */
+
+.bg{
+
+position:fixed;
+width:100%;
+height:100%;
+
+background:url("bg.jpg") no-repeat center center;
+background-size:cover;
+
+z-index:-3;
+
+}
+
+
+/* cinematic overlay */
+
+.overlay{
+
+position:fixed;
+width:100%;
+height:100%;
+
+background:linear-gradient(
+to right,
+rgba(0,0,0,0.2),
+rgba(0,0,0,0.05),
+rgba(0,0,0,0)
+);
+
+z-index:-2;
+
+}
+
+
+/* light animation */
+
+.light{
+
+position:fixed;
+width:200%;
+height:200%;
+
+background:radial-gradient(
+circle at 30% 40%,
+rgba(255,255,255,0.25),
+transparent 40%
+);
+
+animation:moveLight 8s infinite alternate linear;
+
+z-index:-1;
+
+}
+
+@keyframes moveLight{
+
+0%{
+transform:translate(-10%,-10%);
+}
+
+100%{
+transform:translate(10%,10%);
+}
+
+}
+
+
+/* glass button */
+
+.btn{
+
+position:fixed;
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
+
+padding:14px 30px;
+
+color:white;
+font-size:18px;
+font-weight:bold;
+
+text-decoration:none;
+
+border-radius:10px;
+
+background:rgba(0,0,0,0.4);
+
+backdrop-filter:blur(6px);
+
+border:1px solid rgba(255,255,255,0.4);
+
+transition:0.3s;
+
+}
+
+.btn:hover{
+
+background:rgba(0,0,0,0.6);
+
+}
+
+
+.footer{
+
+position:fixed;
+bottom:10px;
+left:15px;
+
+color:white;
+font-size:14px;
+
+background:rgba(0,0,0,0.3);
+padding:5px 10px;
+border-radius:5px;
+
+}
+
+</style>
 
 </head>
 
 <body>
 
-<div class="hero">
+<div class="bg"></div>
 
-    <div class="overlay"></div>
+<div class="overlay"></div>
 
-    <div class="content">
+<div class="light"></div>
 
-        <img src="logo.png" class="logo">
 
-        <h1>A New Leaf for Idukki’s Legacy</h1>
+<a class="btn"
+href="https://wa.me/917902751153">
 
-        <p>
-        Bridwell Limited: Your Trusted Partner in Cardamom Health.
-        Full site growing soon.
-        </p>
+Connect With Us
 
-        <a class="btn" href="https://wa.me/917902751153">
-            Connect With Us
-        </a>
+</a>
 
-    </div>
 
+<div class="footer">
+© Bridwell Limited | Idukki Kerala
 </div>
 
-<footer>
-© Bridwell Limited | Idukki, Kerala
-</footer>
 
 </body>
 </html>
