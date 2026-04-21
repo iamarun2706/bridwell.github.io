@@ -19,7 +19,7 @@ body{
 font-family:Arial, sans-serif;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero{
 min-height:100vh;
@@ -27,13 +27,24 @@ background:url("bg.jpg") center/cover no-repeat;
 display:flex;
 align-items:center;
 justify-content:flex-start;
-padding:40px;
+padding:60px;
 position:relative;
 color:white;
 }
 
+/* overlay for readability */
 
-/* CONTENT */
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:linear-gradient(to right, rgba(0,0,0,0.7), rgba(0,0,0,0.1));
+}
+
+/* content */
 
 .content{
 position:relative;
@@ -41,36 +52,42 @@ max-width:600px;
 z-index:2;
 }
 
+/* logo */
+
 .logo{
-width:150px;
-margin-bottom:20px;
+width:160px;
+margin-bottom:25px;
 }
 
+/* heading */
+
 h1{
-font-size:42px;
+font-size:44px;
 margin-bottom:15px;
 line-height:1.2;
 }
 
+/* paragraph */
+
 p{
 font-size:18px;
 margin-bottom:25px;
-line-height:1.5;
+line-height:1.6;
 }
 
-/* BUTTON */
+/* button */
 
 .btn{
 background:#5b6b2c;
 color:white;
-padding:12px 25px;
+padding:14px 28px;
 text-decoration:none;
 border-radius:6px;
 display:inline-block;
 font-weight:bold;
 }
 
-/* FOOTER */
+/* footer */
 
 footer{
 text-align:center;
@@ -80,18 +97,14 @@ color:white;
 font-size:14px;
 }
 
-/* MOBILE FIX */
+/* MOBILE */
 
 @media (max-width:768px){
 
 .hero{
 justify-content:center;
 text-align:center;
-padding:20px;
-}
-
-.content{
-max-width:100%;
+padding:25px;
 }
 
 .logo{
@@ -116,6 +129,28 @@ width:100%;
 
 </head>
 
+<body>
+
+<div class="hero">
+
+<div class="content">
+
+<img src="logo.png" class="logo">
+
+<h1>A New Leaf for Idukki’s Legacy</h1>
+
+<p>
+<strong>Bridwell Limited:</strong> Your Trusted Partner in Cardamom Health.<br>
+Full site growing soon.
+</p>
+
+<a class="btn" href="https://wa.me/917902751153">
+Connect With Us
+</a>
+
+</div>
+
+</div>
 
 <footer>
 © Bridwell Limited | Idukki, Kerala, India
