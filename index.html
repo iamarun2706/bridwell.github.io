@@ -11,128 +11,107 @@
 
 body{
 margin:0;
-height:100vh;
-overflow:hidden;
-font-family:Arial, Helvetica, sans-serif;
+font-family:Arial, sans-serif;
 }
 
-/* background */
+/* HERO */
 
-.bg{
+.hero{
+min-height:100vh;
+background:url("bg.jpg") center/cover no-repeat;
+display:flex;
+align-items:center;
+justify-content:center;
+padding:20px;
+position:relative;
+color:white;
+text-align:left;
+}
 
-position:fixed;
+/* overlay */
+
+.hero::before{
+content:"";
+position:absolute;
+top:0;
+left:0;
 width:100%;
 height:100%;
-
-background:url("bg.jpg") no-repeat center center;
-background-size:cover;
-
-z-index:-3;
-
+background:linear-gradient(to right, rgba(0,0,0,0.6), rgba(0,0,0,0.2));
 }
 
+/* content */
 
-/* cinematic overlay */
-
-.overlay{
-
-position:fixed;
-width:100%;
-height:100%;
-
-background:linear-gradient(
-to right,
-rgba(0,0,0,0.2),
-rgba(0,0,0,0.05),
-rgba(0,0,0,0)
-);
-
-z-index:-2;
-
+.content{
+position:relative;
+max-width:600px;
 }
 
-
-/* light animation */
-
-.light{
-
-position:fixed;
-width:200%;
-height:200%;
-
-background:radial-gradient(
-circle at 30% 40%,
-rgba(255,255,255,0.25),
-transparent 40%
-);
-
-animation:moveLight 8s infinite alternate linear;
-
-z-index:-1;
-
+.logo{
+width:160px;
+margin-bottom:20px;
 }
 
-@keyframes moveLight{
-
-0%{
-transform:translate(-10%,-10%);
+h1{
+font-size:42px;
+margin-bottom:15px;
+line-height:1.2;
 }
 
-100%{
-transform:translate(10%,10%);
+p{
+font-size:18px;
+margin-bottom:25px;
 }
 
-}
-
-
-/* glass button */
+/* button */
 
 .btn{
-
-position:fixed;
-bottom:40px;
-left:50%;
-transform:translateX(-50%);
-
-padding:14px 30px;
-
+background:#5b6b2c;
 color:white;
-font-size:18px;
-font-weight:bold;
-
+padding:12px 25px;
 text-decoration:none;
-
-border-radius:10px;
-
-background:rgba(0,0,0,0.4);
-
-backdrop-filter:blur(6px);
-
-border:1px solid rgba(255,255,255,0.4);
-
-transition:0.3s;
-
+border-radius:6px;
+display:inline-block;
 }
 
-.btn:hover{
+/* footer */
 
-background:rgba(0,0,0,0.6);
-
-}
-
-
-.footer{
-
-position:fixed;
-bottom:10px;
-left:15px;
-
+footer{
+text-align:center;
+padding:10px;
+background:#000;
 color:white;
 font-size:14px;
+}
 
-background:rgba(0,0,0,0.3);
-padding:5px 10px;
-border-radius:5px;
+/* ✅ MOBILE FIX */
+
+@media (max-width:768px){
+
+.hero{
+text-align:center;
+}
+
+.content{
+max-width:100%;
+}
+
+h1{
+font-size:26px;
+}
+
+p{
+font-size:15px;
+}
+
+.logo{
+width:130px;
+}
+
+.btn{
+width:100%;
+text-align:center;
+}
 
 }
 
@@ -142,25 +121,30 @@ border-radius:5px;
 
 <body>
 
-<div class="bg"></div>
+<div class="hero">
 
-<div class="overlay"></div>
+<div class="content">
 
-<div class="light"></div>
+<img src="logo.png" class="logo">
 
+<h1>A New Leaf for Idukki’s Legacy</h1>
 
-<a class="btn"
-href="https://wa.me/917902751153">
+<p>
+<strong>Bridwell Limited:</strong> Your Trusted Partner in Cardamom Health.<br>
+Full site growing soon.
+</p>
 
+<a class="btn" href="https://wa.me/917902751153">
 Connect With Us
-
 </a>
 
-
-<div class="footer">
-© Bridwell Limited | Idukki Kerala
 </div>
 
+</div>
+
+<footer>
+© Bridwell Limited | Idukki, Kerala
+</footer>
 
 </body>
 </html>
