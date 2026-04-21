@@ -1,128 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Bridwell Limited</title>
+
+<style>
+
 body{
 margin:0;
-font-family:Arial, sans-serif;
-}
-
-/* HERO SECTION */
-
-.hero{
 height:100vh;
-background:url("bg.jpg") center/cover no-repeat;
-display:flex;
-align-items:center;
-justify-content:center;
-position:relative;
-color:white;
-text-align:center;
-padding:20px;
+overflow:hidden;
+font-family:Arial, Helvetica, sans-serif;
 }
 
-.overlay{
-position:absolute;
-top:0;
-left:0;
+/* background */
+
+.bg{
+
+position:fixed;
 width:100%;
 height:100%;
-background:rgba(0,0,0,0.5);
+
+background:url("bg.jpg") no-repeat center center;
+background-size:cover;
+
+z-index:-3;
+
 }
 
-.content{
-position:relative;
-max-width:800px;
+
+/* cinematic overlay */
+
+.overlay{
+
+position:fixed;
+width:100%;
+height:100%;
+
+background:linear-gradient(
+to right,
+rgba(0,0,0,0.2),
+rgba(0,0,0,0.05),
+rgba(0,0,0,0)
+);
+
+z-index:-2;
+
 }
 
-.logo{
-width:180px;
-margin-bottom:20px;
+
+/* light animation */
+
+.light{
+
+position:fixed;
+width:200%;
+height:200%;
+
+background:radial-gradient(
+circle at 30% 40%,
+rgba(255,255,255,0.25),
+transparent 40%
+);
+
+animation:moveLight 8s infinite alternate linear;
+
+z-index:-1;
+
 }
 
-h1{
-font-size:40px;
-margin-bottom:15px;
+@keyframes moveLight{
+
+0%{
+transform:translate(-10%,-10%);
 }
 
-p{
-font-size:18px;
-margin-bottom:25px;
+100%{
+transform:translate(10%,10%);
 }
 
-/* BUTTON */
+}
+
+
+/* glass button */
 
 .btn{
-background:#5b6b2c;
-color:white;
-padding:12px 25px;
-text-decoration:none;
-border-radius:6px;
-display:inline-block;
-}
 
-/* FOOTER */
-
-footer{
-text-align:center;
-padding:10px;
-background:#000;
-color:white;
-font-size:14px;
-}
-
-/* NAVBAR (FOR OTHER PAGES) */
-
-.nav{
 position:fixed;
-top:0;
-width:100%;
-background:rgba(0,0,0,0.6);
-padding:10px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-z-index:10;
-}
+bottom:40px;
+left:50%;
+transform:translateX(-50%);
 
-.menu a{
+padding:14px 30px;
+
 color:white;
-margin:10px;
-text-decoration:none;
+font-size:18px;
 font-weight:bold;
+
+text-decoration:none;
+
+border-radius:10px;
+
+background:rgba(0,0,0,0.4);
+
+backdrop-filter:blur(6px);
+
+border:1px solid rgba(255,255,255,0.4);
+
+transition:0.3s;
+
 }
 
-/* PAGE CONTENT */
+.btn:hover{
 
-.page{
-margin-top:80px;
-padding:20px;
-color:white;
 background:rgba(0,0,0,0.6);
-min-height:100vh;
+
 }
 
-/* ✅ MOBILE FIX */
 
-@media (max-width:768px){
+.footer{
 
-h1{
-font-size:26px;
-}
+position:fixed;
+bottom:10px;
+left:15px;
 
-p{
-font-size:15px;
-}
-
-.logo{
-width:140px;
-}
-
-.menu{
-display:flex;
-flex-wrap:wrap;
-justify-content:center;
-}
-
-.menu a{
-margin:5px;
+color:white;
 font-size:14px;
-}
+
+background:rgba(0,0,0,0.3);
+padding:5px 10px;
+border-radius:5px;
 
 }
+
+</style>
+
+</head>
+
+<body>
+
+<div class="bg"></div>
+
+<div class="overlay"></div>
+
+<div class="light"></div>
+
+
+<a class="btn"
+href="https://wa.me/917902751153">
+
+Connect With Us
+
+</a>
+
+
+<div class="footer">
+© Bridwell Limited | Idukki Kerala
+</div>
+
+
+</body>
+</html>
