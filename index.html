@@ -1088,13 +1088,20 @@ footer address a:hover{color:var(--accent)}
   ];
 
   /* Narrow and portrait screens get the portrait cut of the journey: same
-     shot, framed for the phone, 1.4 MB instead of 6.2 MB. Chosen once, before
-     the fetch starts, so a rotation mid-load never swaps the file underneath. */
+     shot, framed for the phone, 2.3 MB instead of 6.2 MB. Chosen once, before
+     the fetch starts, so a rotation mid-load never swaps the file underneath.
+
+     That file is encoded with EVERY frame a keyframe. Scrubbing works by
+     seeking the video on each scroll frame, and a mobile hardware decoder has
+     to decode forward from the nearest keyframe on every seek. With keyframes
+     spaced 8 frames apart that cost showed up as visible stutter on Android.
+     All-intra costs about 900 KB more and makes every seek land directly on a
+     keyframe, so there is nothing to decode forward. */
   var PORTRAIT = '(max-width:820px),(orientation:portrait) and (max-width:1024px)';
   var isPortrait = matchMedia(PORTRAIT).matches;
 
   var VIDEO_URL   = isPortrait ? 'assets/hero-mobile.mp4'        : 'assets/hero-scrub.mp4';
-  var VIDEO_BYTES = isPortrait ? 1463000                          : 6350825;
+  var VIDEO_BYTES = isPortrait ? 2381235                          : 6350825;
   var POSTER_URL  = isPortrait ? 'assets/hero-mobile-poster.jpg' : 'assets/hero-poster.jpg';
   var ENDING_URL  = isPortrait ? 'assets/hero-mobile-ending.jpg' : 'assets/hero-ending.jpg';
 
